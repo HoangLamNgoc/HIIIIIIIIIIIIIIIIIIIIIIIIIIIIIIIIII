@@ -22,24 +22,25 @@ int main() {
     mang[0] = 0;
     for(int i = 1; i <= n; ++i) mang[i] = mang[i - 1] + a[i];
 
-    stack<int> mins;
-    mins.push(0);
+    vector<int> mins;
+    mins.push_back(0);
     long long maxval = 0, l = 1, r = 1;
     for(int i = 1; i <= n; ++i)
-        if(mang[i] < mang[mins.top()]) mins.push(i);
+        if(mang[i] < mang[mins.back()]) mins.push_back(i);
 
     for(int i = n; i >= 1; --i) {
-        while(!mins.empty() && mang[i] > mang[mins.top()]) {
-            long long x = mins.top();
+        while(!mins.empty() && mang[i] > mang[mins.back()]) {
+            long long x = mins.back();
             long long len = i - x;
             if ( len > maxval) {
                 maxval = len;
                 l = x + 1;
                 r = i;
             }
-            mins.pop();
+            mins.pop_back();
         }
     }
     cout << l << " " << r << endl;
     return 0;
 }
+
