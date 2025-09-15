@@ -31,7 +31,7 @@ int main()
 
     cin >> n;
 
-    int k;
+    long long k;
     cin >> k;
 
     long long a[n];
