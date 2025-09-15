@@ -15,23 +15,23 @@ int main() {
     int n;
     cin >> n;
 
-    long long a[n];
-    for(int i = 0; i < n; ++i) cin >> a[i];
+    long long a[n + 1];
+    for(int i = 1; i <= n; ++i) cin >> a[i];
 
     long long mang[n + 1];
     mang[0] = 0;
-    for(int i = 0; i < n; ++i) mang[i + 1] = mang[i] + a[i];
+    for(int i = 1; i <= n; ++i) mang[i] = mang[i - 1] + a[i];
 
     stack<int> mins;
     mins.push(0);
-    long long maxval = 0, l = 0, r = 0;
+    long long maxval = 0, l = 1, r = 1;
     for(int i = 1; i <= n; ++i)
         if(mang[i] < mang[mins.top()]) mins.push(i);
 
-    for(int i = n; i >= 0; --i) {
-        while(!mins.empty() && mang[i] > mang[mins.top()] && mins.top() < i) {
-            int x = mins.top();
-            int len = i - x + 1;
+    for(int i = n; i >= 1; --i) {
+        while(!mins.empty() && mang[i] > mang[mins.top()]) {
+            long long x = mins.top();
+            long long len = i - x;
             if ( len > maxval) {
                 maxval = len;
                 l = x + 1;
