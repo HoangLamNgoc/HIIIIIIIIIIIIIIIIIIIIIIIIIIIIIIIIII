@@ -7,8 +7,8 @@ int main() {
     ios_base::sync_with_stdio(0); 
     cin.tie(0); cout.tie(0); 
   
-    freopen("FRACTION.INP, "r", stdin); 
-    freopen("FRACTION.OUT, "w", stdout); 
+    freopen("FRACTION.INP", "r", stdin); 
+    freopen("FRACTION.OUT", "w", stdout); 
 
     int T; 
     cin >> T; 
