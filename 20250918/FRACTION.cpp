@@ -19,15 +19,13 @@ int main() {
       
         long long a = 1, b = 1; 
         for (int i = 1; i <= n; ++i ) {
-            long long j; cin >> j; 
-            long long g = gcd(a, j); 
-            a = a / g * j; 
+            long long j; cin >> j;  
+            a = a * j; 
         }
 
         for (int i = 1; i <= n; ++i ) {
-            long long j; cin >> j; 
-            long long g = gcd(b, j); 
-            b = b / g * j; 
+            long long j; cin >> j;  
+            b = b * j; 
         }
 
         long long k = gcd(a, b); 
