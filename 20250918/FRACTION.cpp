@@ -28,7 +28,7 @@ int main() {
             b = b * j; 
         }
 
-        long long k = gcd(a, b); 
+        long long k = __gcd(a, b); 
         a /= k; b/= k; 
 
         while ( b % 2 == 0 ) b /= 2; 
