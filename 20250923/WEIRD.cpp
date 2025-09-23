@@ -1,38 +1,32 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <cmath>
 
 using namespace std; 
 
 int main() {
+    ios_base::sync_with_stdio(0); 
+    cin.tie(0); cout.tie(0); 
+    
+    freopen("WEIRD.INP", "r", stdin);
+    freopen("WEIRD.OUT", "w", stdout); 
+    
     int n; 
     cin >> n; 
 
-    long long start = 1; 
-    long long end = 10;
-    while (n--) {
-        start *= 10;
-        end *= 10; 
-    }
-
-    long long end1 = end, start1 = start;
-    long long dem = 0; 
-    while (start < end) {
-        int mid = (start + end ) / 2; 
-        string s = to_string(mid); 
-        if ( s.length() > n * 2 ) end = mid; 
-        else if (s.length() < n * 2 ) start = mid;
-        else {dem = mid; break; }
-    }
+    long long start2 = pow(10, n - 1);
+    long long end2 = pow(10, n); 
 
     vector<long long> v; 
-    for (int i = dem ; i < end1; ++i) {
+    for (long long i = start2 ; i < end2; ++i) {
         long long y = i * i; 
-        long long j = y % start1;
-        y /= start1; 
-        if ( y + j == n ) v.push_back(i);
+        long long j = y % end2;
+        y /= end2; 
+        if ( y + j == i ) v.push_back(i);
     }
 
-    for (long long& i : v ) cout << i << " "; 
+    if (!v.empty()) for (long long& i : v ) cout << i << " ";
+    else cout << 0 << endl;
     return 0; 
 }
