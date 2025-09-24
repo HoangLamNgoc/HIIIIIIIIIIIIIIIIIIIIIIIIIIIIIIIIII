@@ -15,7 +15,7 @@ void sieve() {
     }
 }
 
-void ham( map<long long, int> a; int n) {
+void ham( map<long long, int>& a; int n) {
     while (d[n] != 0) {
         a[d[n]]++;
         n /= d[n];
@@ -32,10 +32,10 @@ int main() {
     const long long MOD = 1e7 + 9;
 
     for ( int i = 0; i < n; ++i) 
-        ham(i);
+        ham(a, i);
 
     for(auto it = a.begin(); it != a.end(); ++it) {
-        if (it->second) *it--;
+        if (it->second) it->second--;
         while ( it->second--) {
             dem *= it->first;
             dem %= MOD;
