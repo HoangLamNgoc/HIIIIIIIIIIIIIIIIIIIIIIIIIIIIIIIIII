@@ -13,20 +13,19 @@ int main() {
     freopen("WEIRD.OUT", "w", stdout); 
     
     int n; 
-    cin >> n; 
-
-    long long start2 = pow(10, n - 1);
-    long long end2 = pow(10, n); 
-
-    vector<long long> v; 
-    for (long long i = start2 ; i < end2; ++i) {
-        long long y = i * i; 
-        long long j = y % end2;
-        y /= end2; 
-        if ( y + j == i ) v.push_back(i);
+    while (cin >> n) { 
+        int res = n - 1; 
+        long long start2 = 1;
+        while (res--){
+            start *= 10; 
+        }
+        long long end2 = start2 * 10;
+        for (long long i = start2 ; i < end2; ++i) {
+            long long y = i * i; 
+            long long j = y % end2;
+            y /= end2; 
+            if ( y + j == i ) cout << i << " ";
+        }
     }
-
-    if (!v.empty()) for (long long& i : v ) cout << i << " ";
-    else cout << 0 << endl;
     return 0; 
 }
