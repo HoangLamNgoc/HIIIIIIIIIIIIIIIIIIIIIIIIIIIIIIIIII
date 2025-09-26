@@ -31,7 +31,7 @@ int main() {
     map<long long, int> a;
     fill_n(d, maxN + 5, 0);
     sieve();
-    const long long MOD = 10000009;
+    const long long MOD = 1e9 + 7;
     long long dem = 1;
 
     for (int i = 1; i <= n; ++i) {
