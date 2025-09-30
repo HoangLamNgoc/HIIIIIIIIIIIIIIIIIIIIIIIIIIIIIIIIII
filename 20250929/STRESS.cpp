@@ -23,6 +23,7 @@ int main() {
     while (!found) {
         long long pos = __builtin_popcount(n);
         if (pos == 1) found = true;
+        if ( n == 0 ) break;
         pos = __builtin_ctz(n); 
         v.push_back(m - pos - 1); 
         long long b = n >> pos; 
