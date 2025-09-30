@@ -22,14 +22,12 @@ int main() {
     long long m = n;  
     while (!found) {
         long long pos = __builtin_popcount(n);
-        cout << pos << " ";
         if (pos == 1) found = true; 
         pos = __builtin_ctz(n); 
         v.push_back(m - pos - 1); 
         long long b = n >> pos; 
         n = b; 
         m -= (pos + 1); 
-        cout << n << ' ' << m << endl; 
     }
     cout << v.size() << endl; 
     for (long long& i : v) cout << i << ' '; 
