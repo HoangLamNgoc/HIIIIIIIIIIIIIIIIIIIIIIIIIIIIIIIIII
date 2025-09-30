@@ -13,7 +13,7 @@ int main() {
     cin >> n; 
 
     vector<long long> v;
-    if ((n & 1) == 1) {
+    if (n & 1) {
         n = n & ~(1 << 0);
         v.push_back(n); 
     } 
