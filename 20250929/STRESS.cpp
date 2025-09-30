@@ -14,7 +14,7 @@ int main() {
 
     vector<long long> v;
     if (n & 1) {
-        n = n & ~(1 << 0);
+        n -= 1; 
         v.push_back(n); 
     } 
 
